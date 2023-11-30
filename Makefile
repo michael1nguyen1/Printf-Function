@@ -6,7 +6,7 @@
 #    By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/30 13:38:37 by linhnguy          #+#    #+#              #
-#    Updated: 2023/11/30 13:39:21 by linhnguy         ###   ########.fr        #
+#    Updated: 2023/11/30 18:17:26 by linhnguy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIBFT = libft.a
 LIBFTDIR = libft
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-SRCS = printf/ft_printf.c
+SRCS = ft_printf.c
 OBJS = $(SRCS:.c=.o)
 AR = ar rcs
 RM = rm -f
