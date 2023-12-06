@@ -6,13 +6,13 @@
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:46:58 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/12/01 15:17:13 by linhnguy         ###   ########.fr       */
+/*   Updated: 2023/12/06 11:11:16 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_checker(va_list arg, const char *s)
+static int	ft_checker(va_list *arg, const char *s)
 {
 	int		i;
 	int		prtlen;
@@ -31,7 +31,8 @@ static int	ft_checker(va_list arg, const char *s)
 		}
 		if (s[i] && s[i++] == '%')
 		{
-			check = ft_speci(arg, s[i++]);
+			if (s[i] != '\0')
+				check = ft_speci(arg, s[i++]);
 			if (check == -1)
 				return (-1);
 			prtlen += check;
@@ -46,7 +47,7 @@ int	ft_printf(const char *s, ...)
 	va_list	arg;
 
 	va_start(arg, s);
-	prtlen = ft_checker(arg, s);
+	prtlen = ft_checker(&arg, s);
 	va_end(arg);
 	return (prtlen);
 }
